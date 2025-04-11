@@ -14,8 +14,10 @@
         body {
             background-color: rgb(36, 120, 148);
         }
-        a {
+        a:not(a:nth-child(1)) {
             display: block;
+            margin-left: 20px;
+            padding: 2px;
         }
         a:nth-child(1) {
             color:rgb(255, 211, 158)
@@ -25,7 +27,20 @@
 <body>
     <p><a href="./index.html">Назад на Главную</a></p>
     <h1>Скачать файлы</h1>
-    <a href="./path/to/work.txt" class="download-link" download="work.txt">work.txt</a>
-    <a href="./path/to/diagram.png" class="download-link" download="diagram.png">diagram-1.png</a>
+    <a href="./work.txt" download>Текст работы</a>
+    <a href="./UML/Временная_диаграмма.png" download>Временная диаграмма</a>
+    <a href="./UML/Диаграмма_активности.png" download>Диаграмма активности</a>
+    <a href="./UML/Диаграмма_классов.png" download>Диаграмма классов</a>
+    <a href="./UML/Диаграмма_коммуникации.png" download>Диаграмма коммуникации</a>
+    <a href="./UML/Диаграмма_последовательностей.png" download>Диаграмма последовательностей</a>
+    <a href="./UML/Диаграмма_состояний.png" download>Диаграмма состояний</a>
+    <a href="./UML/Диаграмма_сценариев_использования.png" download>Диаграмма сценариев использования</a>
+    <a href="./UML/композитной структуры.png" download>Диаграмма композитной структуры</a>
+    <a href="./UML/компонентов.png" download>Диаграмма компонентов</a>
+    <a href="./UML/обзора взаимодействия.png" download>Диаграмма обзора взаимодействия</a>
+    <a href="./UML/объектов.png" download>Диаграмма объектов</a>
+    <a href="./UML/пакетов.png" download>Диаграмма пакетов</a>
+    <a href="./UML/развёртывания.png" download>Диаграмма развёртывания</a>
+    <a href="./target-audience.png" download>Целевая аудитория</a>
 </body>
 </html>
