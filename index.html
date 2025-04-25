@@ -45,11 +45,43 @@
             max-width: 600px;
             height: auto;
             border-radius: 5px;
+            margin: 8px 0;
         }
         @media screen and (max-width: 600px) {
             main {
                 flex-direction: column;
             }
+        }
+        .login-container {
+            background-color: rgb(64, 139, 164);
+            padding: 8px;
+            border-radius: 5px;
+        }
+        button {
+            background-color: rgb(255, 140, 0);
+            border: none;
+            border-radius: 2px;
+            font-size: 16px;
+            padding: 4px;
+            margin-top: 4px;
+        }
+        button:hover {
+            background-color: rgb(199, 113, 8);
+        }
+        .form-group {
+            margin: 4px;
+        }
+        input {
+            background-color: rgb(64, 139, 164);
+            border: 1px solid white;
+            border-radius: 2px;
+            height: 25px;
+        }
+        #userStatus {
+            font-style: italic;
+            font-size: 25px;
+            padding: 4px;
+            background-color: rgb(64, 139, 164);
         }
     </style>
 </head>
@@ -82,6 +114,22 @@
             </ol>
         </section>
         <section class="sec2">
+            <p id="userStatus">Аноним</p>
+            <div class="login-container">
+                <h2>Авторизация</h2>
+                <form action="/login" method="post" id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Имя пользователя:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Пароль:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit">Войти</button>
+                    <p id="errorMessage" style="color: red;"></p>
+                </form>
+            </div>
             <img src="./analytics-app.png" alt="Analytics app">
             <p><a href="./main.html">Наш проект</a></p>
             <p><a href="./files.html">Страница со скачиваемыми файлами</a></p>
@@ -91,5 +139,6 @@
         <p><i>Авторы: Александр Аскеров, Артём Гисматуллин</i></p>
         <p><i>Разработка информационно-аналитических систем</i></p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
