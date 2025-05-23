@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const projectLinks = document.querySelectorAll('.sec2 a');
     const userCount = document.getElementById('userCount');
 
-    // Initialize user count
-    let authenticatedUserCount = 0;
+    // Retrieve the authenticated user count from localStorage or initialize it
+    let authenticatedUserCount = parseInt(localStorage.getItem('authenticatedUserCount')) || 0;
     userCount.textContent = authenticatedUserCount;
 
     // Проверяем, есть ли сохранённый пользователь в sessionStorage
@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Increment the user count
         authenticatedUserCount++;
         userCount.textContent = authenticatedUserCount;
+        localStorage.setItem('authenticatedUserCount', authenticatedUserCount);
 
         // Очищаем форму
         loginForm.reset();
