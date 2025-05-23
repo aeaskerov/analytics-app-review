@@ -1,12 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Хранилище пользователей (в реальном проекте это должно быть на сервере)
     const usersStorage = JSON.parse(localStorage.getItem('users')) || {};
-    
+
     const loginForm = document.getElementById('loginForm');
     const userStatus = document.getElementById('userStatus');
     const errorMessage = document.getElementById('errorMessage');
     const projectLinks = document.querySelectorAll('.sec2 a');
-    
+    const userCount = document.getElementById('userCount');
+
+    // Initialize user count
+    let authenticatedUserCount = 0;
+    userCount.textContent = authenticatedUserCount;
+
     // Проверяем, есть ли сохранённый пользователь в sessionStorage
     const currentUser = sessionStorage.getItem('currentUser');
     if (currentUser) {
@@ -15,14 +20,14 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         toggleLinks(false);
     }
-    
+
     // Обработка формы авторизации
     loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
+
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
-        
+
         // Проверяем, существует ли пользователь
         if (usersStorage[username]) {
             // Проверяем пароль
@@ -45,11 +50,15 @@ document.addEventListener('DOMContentLoaded', function() {
             toggleLinks(true);
             errorMessage.textContent = '';
         }
-        
+
+        // Increment the user count
+        authenticatedUserCount++;
+        userCount.textContent = authenticatedUserCount;
+
         // Очищаем форму
         loginForm.reset();
     });
-    
+
     // Функция для переключения видимости ссылок
     function toggleLinks(show) {
         projectLinks.forEach(link => {
